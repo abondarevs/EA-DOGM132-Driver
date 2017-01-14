@@ -254,7 +254,8 @@ void EA_DOGM132_WriteDisplayData(_EA_DOGM132_Display * display, _EA_DOGM132_Data
 }
 
 
-void EA_DOGM132_UpdateScreen(_EA_DOGM132_Display * display, uint8_t * Image){
+void EA_DOGM132_UpdateScreen(_EA_DOGM132_Display * display, uint8_t * Image)
+{
     _EA_DOGM132_Data data;
 
     for (int i = 0; i < EA_DOGM132_PAR_PAGES; i++){

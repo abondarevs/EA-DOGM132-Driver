@@ -66,6 +66,10 @@
 #define EA_DOGM132_PAR_COL      132
 #define EA_DOGM132_PAR_PAGES    4
 
+/****************************************************************
+ *  Type definitions
+ ****************************************************************/
+
 typedef enum _EA_DOGM132_Conf_Power
 {
     EA_DOGM132_CONF_POWER_ON,
@@ -167,3 +171,33 @@ typedef struct
   void (*Pull_A0_High)();
   void (*Wait_mS)(uint32_t);
 } _EA_DOGM132_Display;
+
+
+/****************************************************************
+ *  Functions
+ ****************************************************************/
+
+void EA_DOGM132_Send_Byte(_EA_DOGM132_Display  * display, uint8_t byte);
+void EA_DOGM132_Power(_EA_DOGM132_Display  * display, _EA_DOGM132_Conf_Power mode);
+void EA_DOGM132_Fill_Display(_EA_DOGM132_Display  * display);
+void EA_DOGM132_Clear_Display(_EA_DOGM132_Display  * display);
+void EA_DOGM132_Internal_Reset(_EA_DOGM132_Display  * display);
+void EA_DOGM132_Configure_SegmentDriverDirection(_EA_DOGM132_Display  * display, _EA_DOGM132_Conf_Segment_Driver_Direction SegmentDriverDirection);
+void EA_DOGM132_Configure_COMMode(_EA_DOGM132_Display  * display, _EA_DOGM132_Conf_COM_Mode COMMode);
+void EA_DOGM132_Configure_Invert(_EA_DOGM132_Display  * display, _EA_DOGM132_Conf_Invert Invert);
+void EA_DOGM132_Configure_LCDBias(_EA_DOGM132_Display  * display, _EA_DOGM132_Conf_LCD_Bias LCDBias);
+void EA_DOGM132_Configure_PowerControl(_EA_DOGM132_Display  * display,
+                                       _EA_DOGM132_Conf_Booster_Circuit BoosterCircuit,
+                                       _EA_DOGM132_Conf_Voltage_Regulator_Circuit VoltageRegulatorCircuit,
+                                       _EA_DOGM132_Conf_Voltage_Follower_Curcuit VoltageFollowerCircuit);
+void EA_DOGM132_Configure_BoosterRatio(_EA_DOGM132_Display  * display, _EA_DOGM132_Conf_Booster_Ratio BoosterRatio);
+void EA_DOGM132_Configure_VoltageResistorRatio(_EA_DOGM132_Display  * display,  uint8_t ResistorRatio);
+void EA_DOGM132_Configure_ElectronicVolume(_EA_DOGM132_Display * display, uint8_t ElectronicVolume);
+void EA_DOGM132_Configure_StaticIndicator(_EA_DOGM132_Display * display, _EA_DOGM132_Conf_Static_Indicator StaticIndicatorMode, uint8_t StaticIndicator);
+void EA_DOGM132_Display_Start_Line_Set(_EA_DOGM132_Display * display, uint8_t line_number);
+void EA_DOGM132_Page_Address_Set(_EA_DOGM132_Display * display, uint16_t page_number);
+void EA_DOGM132_Column_Address_Set(_EA_DOGM132_Display * display, uint16_t column_number);
+void EA_DOGM132_Hardware_Reset(_EA_DOGM132_Display * display);
+void EA_DOGM132_WriteDisplayData(_EA_DOGM132_Display * display, _EA_DOGM132_Data * Data);
+void EA_DOGM132_UpdateScreen(_EA_DOGM132_Display * display, uint8_t * Image);
+void EA_DOGM132_Init(_EA_DOGM132_Display * display);
