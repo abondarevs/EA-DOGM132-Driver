@@ -1,5 +1,5 @@
 # EA-DOGM132-Driver
-Driver for EA DOGM132 displays, written in C.
+Driver for EA DOGM132 display series, written in C. Tested with EA DOGM132W-5 display and STM32F072RBT6 microcontroller.
 
 ## Example on how to use the library.
 
